@@ -8,5 +8,5 @@ The primary IDE for this demo project is [Visual Studio Code](https://code.visua
 
 ## Testing Roadmap
 
-- This repo will include `.http` files useful with [the REST Client extension from Huachao](https://vscode.dev/github/Huachao/vscode-restclient) to provide a "living contract" of basic requests.
+- This repo will include `.http` files useful with [the REST Client extension from Huachao](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to provide a "living contract" of basic requests.
 - Integrating with Swagger-UI is in the near future
