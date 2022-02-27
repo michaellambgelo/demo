@@ -1,1 +1,5 @@
 GET http://localhost:8080/greeting
+
+###
+
+GET http://localhost:8080/greeting?name=jah
