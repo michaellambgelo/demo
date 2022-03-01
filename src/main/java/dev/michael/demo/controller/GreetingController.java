@@ -1,4 +1,4 @@
-package dev.michael.demo;
+package dev.michael.demo.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
