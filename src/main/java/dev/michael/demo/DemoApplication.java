@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import springfox.documentation.oas.annotations.EnableOpenApi;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
 @RestController
+@EnableOpenApi
+@EnableSwagger2
 public class DemoApplication {
 
 	public static void main(String[] args) {
