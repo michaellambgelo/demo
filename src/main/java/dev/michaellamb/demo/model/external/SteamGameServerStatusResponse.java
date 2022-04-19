@@ -162,6 +162,9 @@ public class SteamGameServerStatusResponse {
 
     @Override
     public String toString() {
+        if (this.response.getServers().isEmpty()) {
+            return "response empty";
+        }
         return "response: " + this.getResponse().getServers().toString();
     }
 }
