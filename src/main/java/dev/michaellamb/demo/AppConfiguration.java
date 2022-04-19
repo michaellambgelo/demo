@@ -1,4 +1,4 @@
-package dev.michael.demo;
+package dev.michaellamb.demo;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("dev.michael.demo")
+@ComponentScan("dev.michaellamb.demo")
 @EnableOpenApi
 public class AppConfiguration {
 }

@@ -1,4 +1,4 @@
-package dev.michael.demo;
+package dev.michaellamb.demo;
 
 import java.util.Arrays;
 

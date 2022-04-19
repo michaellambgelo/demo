@@ -1,4 +1,4 @@
-package dev.michael.demo;
+package dev.michaellamb.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

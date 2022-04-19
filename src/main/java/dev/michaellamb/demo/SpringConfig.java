@@ -1,4 +1,4 @@
-package dev.michael.demo;
+package dev.michaellamb.demo;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

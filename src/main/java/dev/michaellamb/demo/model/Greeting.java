@@ -1,4 +1,4 @@
-package dev.michael.demo.model;
+package dev.michaellamb.demo.model;
 
 public class Greeting {
 
