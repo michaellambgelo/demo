@@ -19,6 +19,18 @@ public class GameStatusAgentImpl implements GameStatusAgent {
     @Resource
     SteamGameServerService steamGameServerService;
 
+/**
+ * The getValheimInstanceStatus function returns the status of a Valheim game server.
+ * 
+ * 
+ *
+ * @param address Specify the address of the server that is being checked
+ * @param key the Steam Web API key used to authorize the query
+ *
+ * @return A gamestatusresponse object
+ *
+ * @docauthor Trelent, michaellambgelo
+ */
     @Override
     public GameStatusResponse getValheimInstanceStatus(String address, String key) {
         final GameStatusResponse response = new GameStatusResponse();
