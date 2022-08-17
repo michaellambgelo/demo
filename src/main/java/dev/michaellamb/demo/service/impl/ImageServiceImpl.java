@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.annotation.Resource;
@@ -41,7 +43,9 @@ public class ImageServiceImpl implements ImageService {
         transcoder.addTranscodingHint(JPEGTranscoder.KEY_QUALITY, new Float(1.0));
 
         // Create the transcoder input.
-        final byte[] data = restTemplate.getForObject(svgUri, byte[].class);
+        final String decodedSvgUri = URLDecoder.decode(svgUri, StandardCharsets.UTF_8.name());
+        LOGGER.info("About to download and convert image from svgUrl {}", decodedSvgUri);
+        final byte[] data = restTemplate.getForObject(decodedSvgUri, byte[].class);
         final InputStream istream = new ByteArrayInputStream(data);
         final TranscoderInput input = new TranscoderInput(istream);
 
