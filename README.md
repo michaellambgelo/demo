@@ -11,5 +11,8 @@ The primary IDE for this demo project is [Visual Studio Code](https://code.visua
 
 ## Testing
 
-- This repo will include `.http` files useful with [the REST Client extension from Huachao](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to provide a "living contract" of basic requests. [GitHub repo](https://github.com/Huachao/vscode-restclient)
-- Swagger-UI is integrated and provides API documentation
+This repo contains `.http` files used with [the REST Client extension from Huachao](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to provide a "living contract" of basic requests. [REST Client Extension GitHub repo](https://github.com/Huachao/vscode-restclient) 
+
+These are no plans to create more documentation using these files.
+
+Swagger UI is integrated and provides API documentation automatically during runtime. The latest version of this app is always available at [demo.michaellamb.dev/swagger-ui/](https://demo.michaellamb.dev/swagger-ui/). 
