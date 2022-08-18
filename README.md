@@ -1,7 +1,8 @@
 # demo - A Spring Boot Lab
 
-[![uptime](https://status.michaellamb.dev/api/badge/10/uptime/24)](https://demo.michaellamb.dev/swagger-ui/)
-[![latency](https://status.michaellamb.dev/api/badge/10/ping/24)](https://demo.michaellamb.dev/swagger-ui/)
+| Uptime | Latency |
+| --- | --- |
+| [![uptime](https://status.michaellamb.dev/api/badge/10/uptime/24)](https://demo.michaellamb.dev/swagger-ui/) | [![latency](https://status.michaellamb.dev/api/badge/10/ping/24)](https://demo.michaellamb.dev/swagger-ui/) |
 
 This repository serves as the codebase for a Spring Boot lab project. Its primary use will be for generating content to be distributed on [michaellamb.dev](https://michaellamb.dev).
 
