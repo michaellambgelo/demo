@@ -1,6 +1,7 @@
 package dev.michaellamb.demo.service.impl;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -77,5 +78,16 @@ public class ImageServiceImpl implements ImageService {
         } catch (Exception e) {
             throw new IOException(e);
         }
+    }
+
+    @Override
+    public void deleteJpegFile(String fileName) throws Exception {
+        try {
+            File jpegFile = new File(fileName);
+            jpegFile.delete();
+            return;
+        } catch (Exception e) {
+            throw new Exception(e);
+        } 
     }
 }

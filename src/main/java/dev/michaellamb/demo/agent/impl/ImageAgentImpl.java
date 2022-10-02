@@ -23,6 +23,7 @@ public class ImageAgentImpl implements ImageAgent {
         try {
             final String fileName = imageService.saveAsJpeg(svgUri);
             response = imageService.getJpegFile(fileName);
+            imageService.deleteJpegFile(fileName);
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred.", e);
         }
