@@ -26,4 +26,19 @@ public class ImageController {
         .contentType(MediaType.IMAGE_JPEG)
         .body(imageAgent.exchangeSvgUriForJpeg(svgUri));
     }
+
+    @GetMapping("/svg-to-png")
+    public ResponseEntity<byte[]> getSvgToPng(@RequestParam("svgUri") String svgUri) {
+        return ResponseEntity.ok()
+                .contentType(MediaType.IMAGE_PNG)
+                .body(imageAgent.exchangeSvgUriForPng(svgUri));
+    }
+
+    //This endpoint is currently in progress.
+   /* @GetMapping("/svg-to-tiff")
+    public ResponseEntity<byte[]> getSvgToTiff(@RequestParam("svgUri") String svgUri) {
+        return ResponseEntity.ok()
+                .contentType(MediaType.valueOf("image/tiff"))
+                .body(imageAgent.exchangeSvgUriForTiff(svgUri));
+    }*/
 }
