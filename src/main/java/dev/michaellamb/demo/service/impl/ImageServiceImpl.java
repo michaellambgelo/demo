@@ -65,20 +65,23 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public byte[] getJpegFile(String fileName) throws IOException {
+    public byte[] getImageFile(String fileName) throws IOException {
         try {
             InputStream inputStream = new FileInputStream(fileName);
-            return IOUtils.toByteArray(inputStream);
+            byte[] inputStreamArray = IOUtils.toByteArray(inputStream);
+            inputStream.close();
+            return inputStreamArray;
         } catch (Exception e) {
             throw new IOException(e);
         }
     }
 
     @Override
-    public void deleteJpegFile(String fileName) throws Exception {
+    public void deleteImageFile(String fileName) throws Exception {
         try {
             File imageFile = new File(fileName);
             imageFile.delete();
+            LOGGER.info("File named " + fileName + " deleted successfully.");
             return;
         } catch (Exception e) {
             throw new Exception(e);
@@ -167,5 +170,4 @@ public class ImageServiceImpl implements ImageService {
 
         return fileName;
     }
-
 }

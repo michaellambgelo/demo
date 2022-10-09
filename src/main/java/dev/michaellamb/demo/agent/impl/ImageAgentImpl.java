@@ -22,8 +22,8 @@ public class ImageAgentImpl implements ImageAgent {
         byte[] response = null;
         try {
             final String fileName = imageService.saveAsJpeg(svgUri);
-            response = imageService.getJpegFile(fileName);
-            imageService.deleteJpegFile(fileName);
+            response = imageService.getImageFile(fileName);
+            imageService.deleteImageFile(fileName);
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred.", e);
         }
@@ -35,8 +35,8 @@ public class ImageAgentImpl implements ImageAgent {
         byte[] response = null;
         try {
             final String fileName = imageService.saveAsPng(svgUri);
-            response = imageService.getJpegFile(fileName);
-            imageService.deleteJpegFile(fileName);
+            response = imageService.getImageFile(fileName);
+            imageService.deleteImageFile(fileName);
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred.", e);
         }
@@ -48,8 +48,8 @@ public class ImageAgentImpl implements ImageAgent {
         byte[] response = null;
         try {
             final String fileName = imageService.saveAsTiff(svgUri);
-            response = imageService.getJpegFile(fileName);
-            imageService.deleteJpegFile(fileName);
+            response = imageService.getImageFile(fileName);
+            imageService.deleteImageFile(fileName);
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred.", e);
         }
