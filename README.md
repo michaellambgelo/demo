@@ -46,6 +46,7 @@ It is recommended to clone this project and use VS Code along with these extensi
 ### Spring Boot Extension Pack
 
 | Id | Pivotal.vscode-boot-dev-pack |
+| - | - |
 | Description | A collection of extensions for developing Spring Boot applications |
 | Version | 0.1.0 |
 | Publisher | Pivotal |
