@@ -7,8 +7,6 @@ public interface ImageService {
 
     public String saveAsPng(String svgUri) throws Exception;
 
-    public String saveAsTiff(String svgUri) throws Exception;
-
     public byte[] getImageFile(String fileName) throws IOException;
 
     public void deleteImageFile(String fileName) throws Exception;

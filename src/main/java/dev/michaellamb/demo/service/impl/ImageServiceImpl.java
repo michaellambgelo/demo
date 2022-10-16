@@ -6,10 +6,10 @@ import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.JPEGTranscoder;
 import org.apache.batik.transcoder.image.PNGTranscoder;
-import org.apache.batik.transcoder.image.TIFFTranscoder;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -54,12 +54,29 @@ public class ImageServiceImpl implements ImageService {
             transcoder.transcode(input, output);
         } catch (TranscoderException te) {
             LOGGER.error("Error during transcode.", te);
+            if(null != istream){
+                istream.close();
+            }
+            if(null != ostream){
+                ostream.flush();
+                ostream.close();
+            }
+            /**
+             * If in case any error occurs, we will delete the jpeg file which has been generated till now.
+             * */
+            String absPath = new FileSystemResource("").getFile().getAbsolutePath() + "/" + fileName;
+            deleteImageFile(absPath);
             throw new Exception("Could not transcode");
+        }finally {
+            // Flush and close the stream.
+            if(null != istream){
+                istream.close();
+            }
+            if(null != ostream){
+                ostream.flush();
+                ostream.close();
+            }
         }
-
-        // Flush and close the stream.
-        ostream.flush();
-        ostream.close();
 
         return fileName;
     }
@@ -80,9 +97,13 @@ public class ImageServiceImpl implements ImageService {
     public void deleteImageFile(String fileName) throws Exception {
         try {
             File imageFile = new File(fileName);
-            imageFile.delete();
-            LOGGER.info("File named " + fileName + " deleted successfully.");
-            return;
+            if(imageFile.exists()){
+                imageFile.delete();
+                LOGGER.info("File named " + fileName + " deleted successfully.");
+                return;
+            }else{
+                throw new FileNotFoundException(fileName + " (The system cannot find the file specified)");
+            }
         } catch (Exception e) {
             throw new Exception(e);
         } 
@@ -119,55 +140,31 @@ public class ImageServiceImpl implements ImageService {
             pngTranscoder.transcode(input, output);
         } catch (TranscoderException te) {
             LOGGER.error("Error during transcode.", te);
+            if(null != istream){
+                istream.close();
+            }
+            if(null != ostream){
+                ostream.flush();
+                ostream.close();
+            }
+            /**
+             * If in case any error occurs, we will delete the jpeg file which has been generated till now.
+             * */
+            String absPath = new FileSystemResource("").getFile().getAbsolutePath() + "/" + fileName;
+            deleteImageFile(absPath);
             throw new Exception("Could not transcode");
+        }finally {
+            // Flush and close the stream.
+            if(null != istream){
+                istream.close();
+            }
+            if(null != ostream){
+                ostream.flush();
+                ostream.close();
+            }
         }
-
-        // Flush and close the stream.
-        ostream.flush();
-        ostream.close();
 
         return fileName;
     }
 
-    /**
-     * This method shows how to transform an SVG document to a TIFF image.
-     *
-     * @param svgUri - SVG document URI
-     * @return converted TIFF image.
-     * */
-    @Override
-    public String saveAsTiff(String svgUri) throws Exception {
-        //Create a PNG transcoder
-        final TIFFTranscoder tiffTranscoder = new TIFFTranscoder();
-
-        // Set the transcoding hints.
-        tiffTranscoder.addTranscodingHint(TIFFTranscoder.KEY_BACKGROUND_COLOR, Boolean.FALSE);
-
-        //Create the TIFF transcoder input
-        final String decodedSvgUri = URLDecoder.decode(svgUri, StandardCharsets.UTF_8.name());
-        LOGGER.info("About to download and convert image from svgUrl {}", decodedSvgUri);
-        final byte[] data = restTemplate.getForObject(decodedSvgUri, byte[].class);
-        final InputStream istream = new ByteArrayInputStream(data);
-
-        final TranscoderInput input = new TranscoderInput(istream);
-
-        // Create the transcoder output.
-        final String fileName = "output-" + counter.incrementAndGet() + ".tiff";
-        final OutputStream ostream = new FileOutputStream(fileName);
-        final TranscoderOutput output = new TranscoderOutput(ostream);
-
-        // Save the image.
-        try {
-            tiffTranscoder.transcode(input, output);
-        } catch (TranscoderException te) {
-            LOGGER.error("Error during transcode.", te);
-            throw new Exception("Could not transcode");
-        }
-
-        // Flush and close the stream.
-        ostream.flush();
-        ostream.close();
-
-        return fileName;
-    }
 }
