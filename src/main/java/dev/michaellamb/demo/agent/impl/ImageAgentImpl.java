@@ -43,17 +43,4 @@ public class ImageAgentImpl implements ImageAgent {
         return response;
     }
 
-    @Override
-    public byte[] exchangeSvgUriForTiff(String svgUri) {
-        byte[] response = null;
-        try {
-            final String fileName = imageService.saveAsTiff(svgUri);
-            response = imageService.getImageFile(fileName);
-            imageService.deleteImageFile(fileName);
-        } catch (Exception e) {
-            LOGGER.error("An unexpected error occurred.", e);
-        }
-        return response;
-    }
-
 }
