@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "dev.michaellamb.allowlist",
+  "type": "java.lang.String",
+  "description": "Allow list provides URLs to validate against client input"
+}]}
