@@ -8,7 +8,7 @@ This repository serves as the codebase for a Spring Boot lab project. Its primar
 
 Get up-to-speed with the project by checking out my blog post titled [Adding Swagger UI to Spring Boot projects](https://michaellamb.dev/spring/2022/09/15/spring-boot-swagger-ui-redux.html).
 
-If you are visiting this repository for Hacktoberfest 2022, please feel free to reach out using GitHub Discussions or join me on [Discord](https://discord.gg/Cq2F84wDFW).
+This repository was listed for Hacktoberfest 2022.
 
 ## IDE
 
