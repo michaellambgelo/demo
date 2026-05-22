@@ -11,13 +11,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import springfox.documentation.oas.annotations.EnableOpenApi;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
 @SpringBootApplication
 @RestController
-@EnableOpenApi
-@EnableSwagger2
 public class DemoApplication {
 
 	public static void main(String[] args) {
